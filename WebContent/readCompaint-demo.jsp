@@ -34,6 +34,7 @@
 <th>Complaint</th>
 <th>Status</th>
 <th>Update</th>
+<th>Delete</th>
 
 </tr>
 <%
@@ -51,7 +52,7 @@ try{
 <td><%=resultSet.getString("complaint") %></td>
 <td><%=resultSet.getString("status") %></td>
 <td><a href="updateComplaint.jsp?cid=<%= resultSet.getInt("cid")%>">Update</a></td>
-
+<td><a href="deleteComplaint.jsp?cid=<%= resultSet.getInt("cid")%>">Delete</a></td>
 
 
 </tr>

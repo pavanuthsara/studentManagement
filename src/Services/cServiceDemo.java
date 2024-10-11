@@ -17,11 +17,9 @@ public class cServiceDemo {
 			String complaint = cdemo.getComplain();
 			String status = cdemo.getStatus();
 			
-			DBConnect dbc = new DBConnect();
-			dbc.getConnection();
 			
 			String sql = "insert into complaintDemo(complaint, status) values (?,?);";
-			PreparedStatement stmt = dbc.getConnection().prepareStatement(sql);
+			PreparedStatement stmt = DBConnect.getConnection().prepareStatement(sql);
 			
 			stmt.setString(1, complaint);
 			stmt.setString(2, status);
@@ -31,7 +29,34 @@ public class cServiceDemo {
 			if(result>0) {
 				System.out.println("Insert success");
 			} else {
-				System.out.println("Insert unsuccess! fuck!!!");
+				System.out.println("Insert unsuccess!");
+			}
+			
+			stmt.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateData(ComplaintDemo cdemo) {
+		try {
+			int cid = cdemo.getCid();
+			String complaint = cdemo.getComplain();
+			String status = cdemo.getStatus();
+			
+			String updateSql = "update complaintDemo set complaint=?, status=? where cid=?);";
+			PreparedStatement stmt = DBConnect.getConnection().prepareStatement(updateSql);
+			
+			stmt.setString(1, complaint);
+			stmt.setString(2, status);
+			stmt.setInt(3, cid);
+			
+			int result = stmt.executeUpdate();
+			
+			if(result>0) {
+				System.out.println("Update success");
+			} else {
+				System.out.println("Update unsuccess!");
 			}
 			
 			stmt.close();
