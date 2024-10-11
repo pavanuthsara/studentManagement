@@ -47,6 +47,20 @@ public class cServiceDemo {
 			DBConnect dbc = new DBConnect();
 			dbc.getConnection();
 			
+			Statement stmt = dbc.getConnection().createStatement();
+			String sql = "Select * from complaintDemo;";
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id = rs.getInt(1);
+				String complaint = rs.getString(2);
+				String status = rs.getString(3);
+				
+				ComplaintDemo cd = new ComplaintDemo(id, complaint, status);
+				cmp.add(cd);
+			}
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		} 
