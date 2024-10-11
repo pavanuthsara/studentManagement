@@ -23,7 +23,8 @@ public class deleteComplaint extends HttpServlet {
 		
 		cServiceDemo csd = new cServiceDemo();
 		String resultMsg = csd.deleteData(cid);
-		response.sendRedirect("deleteComplaint.jsp?msg=" + resultMsg);
+		System.out.println(resultMsg);
+		response.sendRedirect("readCompaint-demo.jsp");
 	}
 
 }

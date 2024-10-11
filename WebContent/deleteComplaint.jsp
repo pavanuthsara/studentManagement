@@ -7,9 +7,8 @@
 
 String cid = request.getParameter("cid"); 
 int pcid = Integer.parseInt(cid);
-
-
 %>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +19,16 @@ int pcid = Integer.parseInt(cid);
 	<style>
     	<jsp:include page="footerCss.jsp" />
     </style>
+    
+    
 </head>
 <body>
 <div class="container">
 <jsp:include page="headerDashboard.jsp" />
 
-<form action="" method="post">
+<form id="complaintForm" action="deleteComplaint" method="post">
 <input type="hidden" name="cid" value="<%= pcid %>">
+<input type="submit" value="confirm delete">
 </form>
 
 
