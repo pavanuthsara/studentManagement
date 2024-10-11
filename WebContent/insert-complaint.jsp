@@ -16,20 +16,22 @@
 	
 	<div class="container">
     <div class="header text-center mb-4">
-        <h1>Add complaint here</h1>
-    </div>
+        <br><h3>Add complaint here</h3>
+    
 
     <div class="form-container">
         <form action="ComplaintServlet" method="post">
             <div class="mb-3">
 	            <label class="form-label">Complaint </label>
-	            <input type="text" name="complaint" required style="margin:5px;"> <br>
+	           <!-- <input type="text" name="complaint" required style="margin:5px;"> <br>  --> 
+	            <textarea id="large-text" name="complaint" rows="10" cols="50"></textarea><br>
             </div>
             <input type="hidden" name="status" value="pending">
           <!--    <input type="hidden" id="dateField" name="date"> -->
 
             <input type="submit" name="submit" value="Submit Complaint" class="btn btn-primary">
         </form>
+    </div>
     </div>
 	</div>
     <jsp:include page="footer.jsp" />

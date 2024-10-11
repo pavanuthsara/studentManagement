@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <!-- Navbar brand (logo or site name) -->
-            <a class="navbar-brand" href="#">School MS</a>
+            <a class="navbar-brand" href="#">School Management System</a>
             
             <!-- Toggler button for mobile view -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

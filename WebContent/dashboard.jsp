@@ -15,8 +15,9 @@
         <div class="container">
             <h1 class="text-center my-4">Student dashboard</h1>
             <div class="d-flex justify-content-center gap-3">
-                <a href="readCompaint-demo.jsp" class="btn btn-primary my-2">Read complaints</a> <br>
-                <a href="insert-complaint.jsp" class="btn btn-success my-2">Insert complaint</a>
+            <a href="insert-complaint.jsp" class="btn btn-primary my-2">Add complaint</a> <br>
+            <a href="readCompaint-demo.jsp" class="btn btn-warning my-2">Your complaints</a> 
+                
             </div>
         </div>
         
