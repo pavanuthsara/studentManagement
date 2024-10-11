@@ -25,14 +25,4 @@ public class deleteComplaint extends HttpServlet {
 		response.sendRedirect("readCompaint-demo.jsp");
     }
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int cid = Integer.parseInt(request.getParameter("cid"));
-		
-		cServiceDemo csd = new cServiceDemo();
-		String resultMsg = csd.deleteData(cid);
-		System.out.println(resultMsg);
-		response.sendRedirect("readCompaint-demo.jsp");
-	}
-
 }
