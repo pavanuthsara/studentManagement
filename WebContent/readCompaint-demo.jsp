@@ -24,19 +24,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <title>Insert title here</title>
 </head>
 <body>
-
-<table>
+<div class="container my-4">
+<table class="table table-bordered table-striped">
+<thead class="table-light">
 <tr>
-<th>ID</th>
-<th>Complaint</th>
-<th>Status</th>
-<th>Update</th>
-<th>Delete</th>
+<th class="text-center">ID</th>
+<th class="text-center">Complaint</th>
+<th class="text-center">Status</th>
+<th class="text-center">Update</th>
+<th class="text-center">Delete</th>
 
 </tr>
+</thead>
 <%
 try{ 
 	connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
@@ -48,11 +51,11 @@ try{
 %>
 <tr>
 
-<td><%=resultSet.getInt("cid") %></td>
-<td><%=resultSet.getString("complaint") %></td>
-<td><%=resultSet.getString("status") %></td>
-<td><a href="updateComplaint.jsp?cid=<%= resultSet.getInt("cid")%>">Update</a></td>
-<td><a href="deleteComplaint.jsp?cid=<%= resultSet.getInt("cid")%>">Delete</a></td>
+<td class="text-center"><%=resultSet.getInt("cid") %></td>
+<td class="text-center"><%=resultSet.getString("complaint") %></td>
+<td class="text-center"><%=resultSet.getString("status") %></td>
+<td class="text-center"><a href="updateComplaint.jsp?cid=<%= resultSet.getInt("cid")%>" class="btn btn-warning btn-sm">Update</a></td>
+<td class="text-center"><a href="deleteComplaint.jsp?cid=<%= resultSet.getInt("cid")%>" class="btn btn-danger btn-sm">Delete</a></td>
 
 
 </tr>
@@ -64,6 +67,7 @@ try{
 %>
 </table>
 
-
+</div>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ZVzw7OoIetZTAoWcBNURpupfAOt6ZXE7V6FxPHXRx6FhFmbSeLlTzZBY51RzFWjS" crossorigin="anonymous"></script>
 </body>
 </html>
