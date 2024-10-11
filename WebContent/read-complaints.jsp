@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,27 @@
 </head>
 <body>
 <h1>Read complaints</h1>
-<form action="fetchComplaints" method="get">
+<form action="" method="">
 	<input type="submit" value="fetch">
+
 </form>
+<table>
+<tr>
+<th>ID</th>
+<th>Complaint</th>
+<th>Status</th>
+</tr>
+<c:forEach var="com" items="${cd}">
+
+<tr>
+<td><c:out value="${com.id}"/></td>
+<td><c:out value="${com.complaint}"/></td>
+<td><c:out value="${com.status}"/></td>
+</tr>
+
+</c:forEach>
+
+</table>
 
 
 </body>
