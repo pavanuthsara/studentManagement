@@ -59,7 +59,7 @@ try{
 <td class="text-center"><%=resultSet.getString("complaint") %></td>
 <td class="text-center"><%=resultSet.getString("status") %></td>
 <td class="text-center"><a href="updateComplaint.jsp?cid=<%= resultSet.getInt("cid")%>" class="btn btn-warning btn-sm">Update</a></td>
-<td class="text-center"><a href="deleteComplaint.jsp?cid=<%= resultSet.getInt("cid")%>" class="btn btn-danger btn-sm">Delete</a></td>
+<td class="text-center"><a href="deleteComplaint?cid=<%= resultSet.getInt("cid")%>" class="btn btn-danger btn-sm">Delete</a></td>
 
 
 </tr>
