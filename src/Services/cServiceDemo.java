@@ -44,7 +44,7 @@ public class cServiceDemo {
 			String complaint = cdemo.getComplain();
 			String status = cdemo.getStatus();
 			
-			String updateSql = "update complaintDemo set complaint=?, status=? where cid=?);";
+			String updateSql = "update complaintDemo set complaint=?, status=? where cid=?;";
 			PreparedStatement stmt = DBConnect.getConnection().prepareStatement(updateSql);
 			
 			stmt.setString(1, complaint);
