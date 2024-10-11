@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.ws.Response;
+
 import Controller.DBConnect;
 import Model.ComplaintDemo;
 
@@ -63,6 +65,38 @@ public class cServiceDemo {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	//Delete complaint from db - service method
+	public String deleteData(int cid) {
+		String msg = " ";
+		try {
+			DBConnect dbc = new DBConnect();
+			
+			String sql = "delete from complaintDemo where cid=?;";
+			PreparedStatement ps = DBConnect.getConnection().prepareStatement(sql);
+			
+			ps.setInt(1, cid);
+			int result = ps.executeUpdate(); //execute the delete query
+			
+			String smsg = cid + " deleted successfully";
+			String umsg = cid + " deletion unsuccessfull!";
+			
+			
+			if(result > 0) {
+				System.out.println(smsg);
+				msg = smsg;
+				
+			}else {
+				System.out.println(umsg);
+				msg = umsg;
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return msg;
 	}
 	
 	public ArrayList<ComplaintDemo> fetchData(){

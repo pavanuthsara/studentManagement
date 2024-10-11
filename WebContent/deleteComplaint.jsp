@@ -8,26 +8,6 @@
 String cid = request.getParameter("cid"); 
 int pcid = Integer.parseInt(cid);
 
-String message = "";
-
-try{
-	DBConnect dbc = new DBConnect();
-	
-	String sqlQuery = "delete from complaintDemo where cid=?;";
-	PreparedStatement ps = DBConnect.getConnection().prepareStatement(sqlQuery);
-	
-	ps.setInt(1, pcid);
-	int result = ps.executeUpdate();
-	
-	if(result > 0){
-		message = "deleted successfully";
-	} else {
-		message = "deletion unsuccessfully";
-	}
-	ps.close();
-} catch(Exception e){
-	e.printStackTrace();
-}
 
 %>    
 <!DOCTYPE html>
@@ -44,7 +24,13 @@ try{
 <body>
 <div class="container">
 <jsp:include page="headerDashboard.jsp" />
-<%= message %>
+
+<form action="" method="post">
+<input type="hidden" name="cid" value="<%= pcid %>">
+</form>
+
+
+
 </div>
 <!-- Include the footer -->
 <jsp:include page="footer.jsp" />
