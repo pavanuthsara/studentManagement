@@ -6,39 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert Complaint </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
     <style>
-    input{
-    	margin:5px;
-    }
+    <jsp:include page="footerCss.jsp" />
     </style>
 </head>
 <body>
-
-    <div class="header">
+	<jsp:include page="headerDashboard.jsp" />
+	
+	<div class="container">
+    <div class="header text-center mb-4">
         <h1>Add complaint here</h1>
     </div>
 
     <div class="form-container">
         <form action="ComplaintServlet" method="post">
-           <!-- <label>Complaint ID:</label>
-            <input type="number" name="cid" required> <br>
-
-            <label>SID </label>
-            <input type="number" name="sid" required> <br>  --> 
-            
-            <label>Complaint </label>
-            <input type="text" name="complaint" required> <br>
-            
+            <div class="mb-3">
+	            <label class="form-label">Complaint </label>
+	            <input type="text" name="complaint" required style="margin:5px;"> <br>
+            </div>
             <input type="hidden" name="status" value="pending">
           <!--    <input type="hidden" id="dateField" name="date"> -->
 
-            <input type="submit" name="submit" value="Submit Complaint">
+            <input type="submit" name="submit" value="Submit Complaint" class="btn btn-primary w-100">
         </form>
     </div>
-
-    <div class="footer">
-        <p>&copy; 2024 School Information Management System | All Rights Reserved</p>
-    </div>
+	</div>
+    <jsp:include page="footer.jsp" />
     
     <script>
 	    // Get today's date
