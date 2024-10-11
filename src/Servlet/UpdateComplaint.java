@@ -17,7 +17,6 @@ public class UpdateComplaint extends HttpServlet {
        
     public UpdateComplaint() {
         super();
-
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

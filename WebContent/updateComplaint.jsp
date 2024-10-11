@@ -35,10 +35,14 @@ try{
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<style>
+    	<jsp:include page="footerCss.jsp" />
+   	</style>
 <title>Insert title here</title>
 </head>
 <body>
-
+	<jsp:include page="headerDashboard.jsp" />
+	<div class="container">
 <form action="UpdateComplaint" method="post">
 
 Complaint ID : <%= pcid %> <input type="hidden" name="cid" value="<%= pcid %>"><br>
@@ -47,6 +51,8 @@ Complaint : <input type="text" name="complaint" value="<%= complaintText %>"> <b
 <input type="submit" value="Update complaint">
 
 </form>
-
+</div>
+ <!-- Include the footer -->
+        <jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -28,7 +28,7 @@
             <input type="hidden" name="status" value="pending">
           <!--    <input type="hidden" id="dateField" name="date"> -->
 
-            <input type="submit" name="submit" value="Submit Complaint" class="btn btn-primary w-100">
+            <input type="submit" name="submit" value="Submit Complaint" class="btn btn-primary">
         </form>
     </div>
 	</div>

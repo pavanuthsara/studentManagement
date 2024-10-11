@@ -17,7 +17,6 @@ public class ComplaintServlet extends HttpServlet {
   
     public ComplaintServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
