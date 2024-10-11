@@ -33,6 +33,7 @@
 <th>ID</th>
 <th>Complaint</th>
 <th>Status</th>
+<th>Update</th>
 
 </tr>
 <%
@@ -49,6 +50,7 @@ try{
 <td><%=resultSet.getInt("cid") %></td>
 <td><%=resultSet.getString("complaint") %></td>
 <td><%=resultSet.getString("status") %></td>
+<td><a href="updateComplaint.jsp?cid=<%= resultSet.getInt("cid")%>">Update</a></td>
 
 
 
