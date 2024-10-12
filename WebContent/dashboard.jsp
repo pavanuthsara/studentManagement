@@ -3,7 +3,7 @@
     
 <% 
    int sid =(Integer) session.getAttribute("sid");
-  
+   String name =(String) session.getAttribute("name");
 %>
 <!DOCTYPE html>
 <html>
@@ -18,7 +18,7 @@
     <body>
     <jsp:include page="headerDashboard.jsp" />
         <div class="container">
-            <h1 class="text-center my-4">Student dashboard <%= sid %></h1>
+            <h1 class="text-center my-4">Student dashboard <%= sid %> : <%= name %></h1>
             
             <!-- display user session -->
             <p>

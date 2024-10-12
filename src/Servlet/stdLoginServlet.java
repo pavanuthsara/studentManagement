@@ -1,6 +1,9 @@
 package Servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.StudentDemo;
 import Services.cServiceDemo;
 
 @WebServlet("/stdLoginServlet")
@@ -25,12 +29,20 @@ public class stdLoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		cServiceDemo csd = new cServiceDemo();
-		boolean x = csd.checkLogIn(sid, password);
-		if(x==true) {
+		StudentDemo sd = null;
+		sd = csd.checkLogIn(sid, password);
+		
+		if(sd.getSid()>0) {
 			HttpSession session = request.getSession();
 			session.setAttribute("sid", sid);
+			session.setAttribute("name", sd.getName());
+			response.sendRedirect("dashboard.jsp");
+		}else {
+			System.out.println("Error with setting session!");
 		}
-		response.sendRedirect("dashboard.jsp");
+		
+		
+		
 	}
 
 }

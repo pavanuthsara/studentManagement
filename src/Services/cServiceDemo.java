@@ -9,6 +9,7 @@ import javax.xml.ws.Response;
 
 import Controller.DBConnect;
 import Model.ComplaintDemo;
+import Model.StudentDemo;
 
 public class cServiceDemo {
 	public cServiceDemo() {
@@ -72,7 +73,6 @@ public class cServiceDemo {
 	public String deleteData(int cid) {
 		String msg = " ";
 		try {
-			DBConnect dbc = new DBConnect();
 			
 			String sql = "delete from complaintDemo where cid=?;";
 			PreparedStatement ps = DBConnect.getConnection().prepareStatement(sql);
@@ -127,8 +127,9 @@ public class cServiceDemo {
 		return cmp;
 	}
 	
-	public boolean checkLogIn(int sid, String password) {
-		boolean x = false; 
+	public StudentDemo checkLogIn(int sid, String password) {
+//		boolean x = false; 
+		StudentDemo sd = null;
 		try {
 			//query to execute
 			String sql = "select * from student where sid=?;";
@@ -138,12 +139,18 @@ public class cServiceDemo {
 			ResultSet rs = ps.executeQuery();
 			
 			if(rs.next()) {
+				int psid = rs.getInt(1);
 				String name = rs.getString(2);
 				String pass = rs.getString(3);
+				String email = rs.getString(4);
+				String bdate = rs.getString(5);
+				
+				sd = new StudentDemo(psid, name, pass, email, bdate);
+				
 				if(pass.equals(password)) {
 					System.out.println("Log in success! for SID : " + sid );
 					System.out.println("Student name : " + name);
-					x = true;
+//					x = true;
 				} else {
 					System.out.println("error with login!, Invalid sid or password!");
 				}
@@ -151,7 +158,8 @@ public class cServiceDemo {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return x;
+		return sd;
 	}
+	
 
 }
