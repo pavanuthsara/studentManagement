@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.xml.ws.Response;
 
 import Controller.DBConnect;
@@ -126,8 +127,8 @@ public class cServiceDemo {
 		return cmp;
 	}
 	
-	public void checkLogIn(int sid, String password) {
-		
+	public boolean checkLogIn(int sid, String password) {
+		boolean x = false; 
 		try {
 			//query to execute
 			String sql = "select * from student where sid=?;";
@@ -142,6 +143,7 @@ public class cServiceDemo {
 				if(pass.equals(password)) {
 					System.out.println("Log in success! for SID : " + sid );
 					System.out.println("Student name : " + name);
+					x = true;
 				} else {
 					System.out.println("error with login!, Invalid sid or password!");
 				}
@@ -149,6 +151,7 @@ public class cServiceDemo {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		return x;
 	}
 
 }

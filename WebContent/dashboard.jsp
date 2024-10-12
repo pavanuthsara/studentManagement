@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<% 
+   int sid =(Integer) session.getAttribute("sid");
+  
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +18,14 @@
     <body>
     <jsp:include page="headerDashboard.jsp" />
         <div class="container">
-            <h1 class="text-center my-4">Student dashboard</h1>
+            <h1 class="text-center my-4">Student dashboard <%= sid %></h1>
+            
+            <!-- display user session -->
+            <p>
+            
+            </p>
+            <!-- display user session -->
+            
             <div class="d-flex justify-content-center gap-3">
             <a href="insert-complaint.jsp" class="btn btn-primary my-2">Add complaint</a> <br>
             <a href="readCompaint-demo.jsp" class="btn btn-warning my-2">Your complaints</a> 

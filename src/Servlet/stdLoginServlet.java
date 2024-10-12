@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Services.cServiceDemo;
 
@@ -24,7 +25,11 @@ public class stdLoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		cServiceDemo csd = new cServiceDemo();
-		csd.checkLogIn(sid, password);
+		boolean x = csd.checkLogIn(sid, password);
+		if(x==true) {
+			HttpSession session = request.getSession();
+			session.setAttribute("sid", sid);
+		}
 		response.sendRedirect("dashboard.jsp");
 	}
 
