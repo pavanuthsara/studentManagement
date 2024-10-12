@@ -21,3 +21,5 @@ create table student(
     bdate date
 )
 ```
+
+```insert into student values (0, 'Pavan Uthsara','pavan123', 'p.uthsara@email.com', '2003-08-29');````
