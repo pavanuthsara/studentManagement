@@ -103,10 +103,8 @@ public class cServiceDemo {
 		ArrayList<ComplaintDemo> cmp = new ArrayList<>();
 		
 		try {
-			DBConnect dbc = new DBConnect();
-			dbc.getConnection();
 			
-			Statement stmt = dbc.getConnection().createStatement();
+			Statement stmt = DBConnect.getConnection().createStatement();
 			String sql = "Select * from complaintDemo;";
 			
 			ResultSet rs = stmt.executeQuery(sql);
@@ -126,6 +124,31 @@ public class cServiceDemo {
 		
 		
 		return cmp;
+	}
+	
+	public void checkLogIn(int sid, String password) {
+		
+		try {
+			//query to execute
+			String sql = "select * from student where sid=?;";
+			PreparedStatement ps = DBConnect.getConnection().prepareStatement(sql);
+			
+			ps.setInt(1, sid);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				String name = rs.getString(2);
+				String pass = rs.getString(3);
+				if(pass.equals(password)) {
+					System.out.println("Log in success! for SID : " + sid );
+					System.out.println("Student name : " + name);
+				} else {
+					System.out.println("error with login!, Invalid sid or password!");
+				}
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

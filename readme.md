@@ -11,3 +11,13 @@ create table complaintDemo(
     status varchar(45)
 );
 ```
+
+```
+create table student(
+	sid int primary key auto_increment,
+    name varchar(45) not null,
+    password varchar(45) not null,
+    email varchar(45),
+    bdate date
+)
+```
