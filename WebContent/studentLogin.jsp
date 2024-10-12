@@ -11,11 +11,11 @@
     	<jsp:include page="footerCss.jsp" />
    	</style>
 </head>
-<body>
-<jsp:include page="headerDashboard.jsp" />
+<body bg-light>
+<jsp:include page="header.jsp" />
 
 
-<div class="container min-vh-80 d-flex justify-content-center align-items-center">
+<div class="container min-vh-80 d-flex justify-content-center align-items-center ">
 	<div class="col-6">
 		<h3 class="mb-3">Student Login</h3>
 		<form action="stdLoginServlet" method="post" class="border p-4 rounded">
