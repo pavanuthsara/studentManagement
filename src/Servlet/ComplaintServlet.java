@@ -26,7 +26,7 @@ public class ComplaintServlet extends HttpServlet {
 		
 		cServiceDemo csd = new cServiceDemo();
 		csd.insertData(cmp);
-		response.sendRedirect("insert-complaint.jsp");
+		response.sendRedirect("readCompaint-demo.jsp");
 	}
 
 }
