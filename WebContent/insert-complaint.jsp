@@ -23,26 +23,26 @@
         }
     </script>
 </head>
-<body>
+<body class="bg-light">
 	<jsp:include page="headerDashboard.jsp" />
+
+<div class="container min-vh-80 d-flex justify-content-center align-items-center ">
+	<div class="col-6">
+	<h3 class="mb-3">Add complaint here</h3>
 	
-	<div class="container">
-    <div class="header text-center mb-4">
-        <br><h3>Add complaint here</h3>
-	
-    <div class="form-container">
-        <form action="ComplaintServlet" method="post" id="complaintForm" onsubmit="return validateForm();">
-            <div class="mb-3">
-	            <label class="form-label">Complaint </label>
-	            <textarea id="large-text" name="complaint" rows="10" cols="50" ></textarea><br>
+        <form action="ComplaintServlet" method="post" id="complaintForm" onsubmit="return validateForm();" >
+            <div class="form-group mb-4">
+	            <label class="mb-2">Complaint </label>
+	            <textarea id="large-text" name="complaint" rows="10" cols="30" class="form-control" placeholder="Enter your complaint"></textarea><br>
             </div>
             <input type="hidden" name="status" value="pending">
 
             <input type="submit" name="submit" value="Submit Complaint" class="btn btn-primary">
         </form>
+    
     </div>
-    </div>
-	</div>
+	
+</div>	
     <jsp:include page="footer.jsp" />
     
 
