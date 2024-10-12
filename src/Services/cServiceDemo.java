@@ -2,11 +2,6 @@ package Services;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-import javax.xml.ws.Response;
-
 import Controller.DBConnect;
 import Model.ComplaintDemo;
 import Model.StudentDemo;
@@ -127,8 +122,8 @@ public class cServiceDemo {
 		return cmp;
 	}
 	
+	//Student log in check function
 	public StudentDemo checkLogIn(int sid, String password) {
-//		boolean x = false; 
 		StudentDemo sd = null;
 		try {
 			//query to execute
@@ -150,7 +145,6 @@ public class cServiceDemo {
 				if(pass.equals(password)) {
 					System.out.println("Log in success! for SID : " + sid );
 					System.out.println("Student name : " + name);
-//					x = true;
 				} else {
 					System.out.println("error with login!, Invalid sid or password!");
 				}

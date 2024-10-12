@@ -10,6 +10,18 @@
     <style>
     <jsp:include page="footerCss.jsp" />
     </style>
+    
+     <script>
+        function validateForm() {
+            var complaint = document.getElementById("large-text").value.trim();
+            
+            if (complaint === "") {
+                alert("Please fill out the complaint field.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
 </head>
 <body>
 	<jsp:include page="headerDashboard.jsp" />
@@ -17,17 +29,14 @@
 	<div class="container">
     <div class="header text-center mb-4">
         <br><h3>Add complaint here</h3>
-    
-
+	
     <div class="form-container">
-        <form action="ComplaintServlet" method="post">
+        <form action="ComplaintServlet" method="post" id="complaintForm" onsubmit="return validateForm();">
             <div class="mb-3">
 	            <label class="form-label">Complaint </label>
-	           <!-- <input type="text" name="complaint" required style="margin:5px;"> <br>  --> 
-	            <textarea id="large-text" name="complaint" rows="10" cols="50"></textarea><br>
+	            <textarea id="large-text" name="complaint" rows="10" cols="50" ></textarea><br>
             </div>
             <input type="hidden" name="status" value="pending">
-          <!--    <input type="hidden" id="dateField" name="date"> -->
 
             <input type="submit" name="submit" value="Submit Complaint" class="btn btn-primary">
         </form>
@@ -36,13 +45,6 @@
 	</div>
     <jsp:include page="footer.jsp" />
     
-    <script>
-	    // Get today's date
-	    const today = new Date().toISOString().split('T')[0]; // Format as YYYY-MM-DD
-	    
-	    // Set the value of the hidden input field
-	    document.getElementById('dateField').value = today;
-	</script>	
 
 </body>
 </html>

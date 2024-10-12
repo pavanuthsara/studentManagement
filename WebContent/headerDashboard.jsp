@@ -19,7 +19,7 @@
                         <a class="nav-link active btn " aria-current="page" href="dashboard.jsp">|</a>             
                     </li>
                     <li class="nav-item me-2">
-                     	<a class="nav-link active btn " aria-current="page" href="#"> Log Out</a>
+                     	<a class="nav-link active btn " aria-current="page" href="stdLogoutServlet"> Log Out</a>
                     </li>
                     
                 </ul>

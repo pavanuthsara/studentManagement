@@ -1,9 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +26,7 @@ public class stdLoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		cServiceDemo csd = new cServiceDemo();
+		
 		StudentDemo sd = null;
 		sd = csd.checkLogIn(sid, password);
 		
