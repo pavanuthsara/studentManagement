@@ -18,7 +18,7 @@
     <body>
     <jsp:include page="headerDashboard.jsp" />
         <div class="container">
-            <h1 class="text-center my-4">Student dashboard <%= sid %> : <%= name %></h1>
+            <h1 class="text-center my-4">Student dashboard : <%= name %></h1>
             
             <div class="d-flex justify-content-center gap-3">
             <a href="insert-complaint.jsp" class="btn btn-primary my-2">Add complaint</a> <br>
