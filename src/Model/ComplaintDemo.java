@@ -4,6 +4,7 @@ public class ComplaintDemo {
 	private int cid;
 	private String complain;
 	private String status;
+	private int sid;
 	
 	public ComplaintDemo() {
 		this.cid = 0;
@@ -13,6 +14,13 @@ public class ComplaintDemo {
 		this.cid = cid;
 		this.complain = complain;
 		this.status = status;
+	}
+	
+	public ComplaintDemo(int cid, String complain, String status, int sid) {
+		this.cid = cid;
+		this.complain = complain;
+		this.status = status;
+		this.sid = sid;
 	}
 
 	public int getCid() {
@@ -37,6 +45,14 @@ public class ComplaintDemo {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public int getSid() {
+		return sid;
+	}
+
+	public void setSid(int sid) {
+		this.sid = sid;
 	}
 	
 	

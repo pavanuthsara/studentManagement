@@ -20,12 +20,6 @@
         <div class="container">
             <h1 class="text-center my-4">Student dashboard <%= sid %> : <%= name %></h1>
             
-            <!-- display user session -->
-            <p>
-            
-            </p>
-            <!-- display user session -->
-            
             <div class="d-flex justify-content-center gap-3">
             <a href="insert-complaint.jsp" class="btn btn-primary my-2">Add complaint</a> <br>
             <a href="readCompaint-demo.jsp" class="btn btn-warning my-2">Your complaints</a> 

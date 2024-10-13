@@ -15,13 +15,15 @@ public class cServiceDemo {
 		try {
 			String complaint = cdemo.getComplain();
 			String status = cdemo.getStatus();
+			int sid = cdemo.getSid();
 			
 			
-			String sql = "insert into complaintDemo(complaint, status) values (?,?);";
+			String sql = "insert into complaintDemo(complaint, status, sid) values (?,?,?) ;";
 			PreparedStatement stmt = DBConnect.getConnection().prepareStatement(sql);
 			
 			stmt.setString(1, complaint);
 			stmt.setString(2, status);
+			stmt.setInt(3, sid);
 			
 			int result = stmt.executeUpdate();
 			

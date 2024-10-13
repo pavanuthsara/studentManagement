@@ -16,9 +16,9 @@
 	}
 	
 	Connection connection = null;
-	Statement statement = null;
+	PreparedStatement stmt = null;
 	ResultSet resultSet = null;
-    
+	    
 %>
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,7 @@
 	<style>
     	<jsp:include page="footerCss.jsp" />
    	</style>
-<title>Insert title here</title>
+<title>Read Complaints</title>
 </head>
 <body>
 <jsp:include page="headerDashboard.jsp" />
@@ -47,10 +47,18 @@
 <%
 try{ 
 	connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
-	statement=connection.createStatement();
-	String sql ="SELECT * FROM complaintDemo";
+	String sql ="SELECT * FROM complaintDemo where sid=?";
 	
-	resultSet = statement.executeQuery(sql);
+	stmt = connection.prepareStatement(sql);
+	
+	int psid =(Integer) session.getAttribute("sid");
+	stmt.setInt(1, psid);
+	
+	System.out.println(psid);
+	System.out.println(stmt);
+	
+	resultSet = stmt.executeQuery();
+	
 	while(resultSet.next()){
 %>
 <tr>

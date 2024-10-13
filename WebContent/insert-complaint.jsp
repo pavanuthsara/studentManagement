@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,7 @@
 	            <textarea id="large-text" name="complaint" rows="10" cols="30" class="form-control" placeholder="Enter your complaint"></textarea><br>
             </div>
             <input type="hidden" name="status" value="pending">
+
 
             <input type="submit" name="submit" value="Submit Complaint" class="btn btn-primary">
         </form>
