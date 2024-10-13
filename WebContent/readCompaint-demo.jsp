@@ -33,6 +33,7 @@
 <body>
 <jsp:include page="headerDashboard.jsp" />
 <div class="container my-4">
+<h3 class="mb-3">Your complaints</h3>
 <table class="table table-bordered table-striped">
 <thead class="table-light">
 <tr>

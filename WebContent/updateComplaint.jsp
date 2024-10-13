@@ -42,16 +42,23 @@ try{
 </head>
 <body>
 	<jsp:include page="headerDashboard.jsp" />
-	<div class="container">
-<form action="UpdateComplaint" method="post">
+	<div class="container min-vh-80 d-flex justify-content-center align-items-center">
+		<div class="col-6">
+			<h3 class="mb-3"><u>Update your complaint</u></h3>
+			<form action="UpdateComplaint" method="post" id="complaintForm">
+				<div class="form-group mb-4">
+				Complaint ID : <%= pcid %> <input type="hidden" class="form-control mt-2" name="cid" value="<%= pcid %>"><br>
+				</div>
+				
+				<div class="form-group mb-3">
+				Complaint : <input type="text" name="complaint" class="form-control mt-2" value="<%= complaintText %>"> <br>
+				</div>
+				
+				<input type="submit" value="Update complaint" class="btn btn-warning">
 
-Complaint ID : <%= pcid %> <input type="hidden" name="cid" value="<%= pcid %>"><br>
-Complaint : <input type="text" name="complaint" value="<%= complaintText %>"> <br>
-
-<input type="submit" value="Update complaint">
-
-</form>
-</div>
+			</form>
+		</div>
+	</div>
  <!-- Include the footer -->
         <jsp:include page="footer.jsp" />
 </body>
