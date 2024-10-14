@@ -27,7 +27,11 @@ public class UpdateComplaint extends HttpServlet {
 		
 		cServiceDemo csd = new cServiceDemo();
 		csd.updateData(cmp);
-		response.sendRedirect("readCompaint-demo.jsp");
+		
+		int x = 1;
+		
+		response.sendRedirect("ReadComplaints?sid=" + x);
+		
 	}
 
 }

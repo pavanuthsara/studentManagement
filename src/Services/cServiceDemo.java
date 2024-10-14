@@ -136,7 +136,7 @@ public class cServiceDemo {
 		ArrayList<ComplaintDemo> cdArr = new ArrayList<>();
 		
 		try {
-			String sql = "select * from where sid=?;";
+			String sql = "select * from complaintDemo where sid=?;";
 			PreparedStatement ps  = DBConnect.getConnection().prepareStatement(sql);
 			ps.setInt(1, sid);
 			

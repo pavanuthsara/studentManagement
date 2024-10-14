@@ -30,9 +30,17 @@ public class ReadComplaints extends HttpServlet {
 		ArrayList<ComplaintDemo> cd = new ArrayList<>();
 		cd = csd.readComplaints(sid);
 		
+		for(ComplaintDemo c : cd) {
+			c.getCid();
+			c.getComplain();
+			c.getStatus();
+			System.out.println("");
+		}
+		
+		
 		request.setAttribute("cdetails", cd);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("readComplaint-demo.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("readCompaint-demo.jsp");
 		dispatcher.forward(request, response);
 	}
 
