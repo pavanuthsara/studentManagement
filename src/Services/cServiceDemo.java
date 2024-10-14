@@ -97,33 +97,6 @@ public class cServiceDemo {
 		return msg;
 	}
 	
-	public ArrayList<ComplaintDemo> fetchData(){
-		ArrayList<ComplaintDemo> cmp = new ArrayList<>();
-		
-		try {
-			
-			Statement stmt = DBConnect.getConnection().createStatement();
-			String sql = "Select * from complaintDemo;";
-			
-			ResultSet rs = stmt.executeQuery(sql);
-			
-			while(rs.next()) {
-				int id = rs.getInt(1);
-				String complaint = rs.getString(2);
-				String status = rs.getString(3);
-				
-				ComplaintDemo cd = new ComplaintDemo(id, complaint, status);
-				cmp.add(cd);
-			}
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		} 
-		
-		
-		return cmp;
-	}
-	
 	//Student log in check function
 	public StudentDemo checkLogIn(int sid, String password) {
 		StudentDemo sd = null;
@@ -155,6 +128,35 @@ public class cServiceDemo {
 			e.printStackTrace();
 		}
 		return sd;
+	}
+	
+	//read complaint data from db
+	public ArrayList<ComplaintDemo> readComplaints(int sid) {
+		
+		ArrayList<ComplaintDemo> cdArr = new ArrayList<>();
+		
+		try {
+			String sql = "select * from where sid=?;";
+			PreparedStatement ps  = DBConnect.getConnection().prepareStatement(sql);
+			ps.setInt(1, sid);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int cid = rs.getInt(1);
+				String complaint = rs.getString(2);
+				String status = rs.getString(3);
+				
+				ComplaintDemo cd = new ComplaintDemo(cid, complaint, status);
+				cdArr.add(cd);
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cdArr;
+		
 	}
 	
 

@@ -22,7 +22,7 @@
             
             <div class="d-flex justify-content-center gap-3">
             <a href="insert-complaint.jsp" class="btn btn-primary my-2">Add complaint</a> <br>
-            <a href="readCompaint-demo.jsp" class="btn btn-warning my-2">Your complaints</a> 
+            <a href="ReadComplaints?sid=<%= sid %>" class="btn btn-warning my-2">Your complaints</a> 
                 
             </div>
         </div>
