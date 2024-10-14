@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Services.cServiceDemo;
 
@@ -22,7 +23,12 @@ public class deleteComplaint extends HttpServlet {
     	cServiceDemo csd = new cServiceDemo();
 		String resultMsg = csd.deleteData(cid);
 		System.out.println(resultMsg);
-		response.sendRedirect("readCompaint-demo.jsp");
+		
+		HttpSession session = request.getSession();
+		int x =(Integer) session.getAttribute("sid");
+		System.out.println("x value = " + x);
+		
+		response.sendRedirect("ReadComplaints?sid=" + x);
     }
 
 }

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.ComplaintDemo;
 import Services.cServiceDemo;
@@ -28,7 +29,9 @@ public class UpdateComplaint extends HttpServlet {
 		cServiceDemo csd = new cServiceDemo();
 		csd.updateData(cmp);
 		
-		int x = 1;
+		HttpSession session = request.getSession();
+		int x =(Integer) session.getAttribute("sid");
+		System.out.println("x value for update complaint = " + x);
 		
 		response.sendRedirect("ReadComplaints?sid=" + x);
 		

@@ -31,7 +31,11 @@ public class ComplaintServlet extends HttpServlet {
 		
 		cServiceDemo csd = new cServiceDemo();
 		csd.insertData(cmp);
-		response.sendRedirect("readCompaint-demo.jsp");
+		
+		int x =(Integer) session.getAttribute("sid");
+		System.out.println("x value for delete servlet = " + x);
+		
+		response.sendRedirect("ReadComplaints?sid=" + x);
 	}
 
 }
