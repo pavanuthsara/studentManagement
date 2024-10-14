@@ -19,7 +19,10 @@ public class cServiceDemo {
 			
 			
 			String sql = "insert into complaintDemo(complaint, status, sid) values (?,?,?) ;";
-			PreparedStatement stmt = DBConnect.getConnection().prepareStatement(sql);
+			
+			DBConnect dbConnect = DBConnect.getInstance();
+			Connection con = dbConnect.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, complaint);
 			stmt.setString(2, status);
@@ -46,7 +49,10 @@ public class cServiceDemo {
 			String status = cdemo.getStatus();
 			
 			String updateSql = "update complaintDemo set complaint=?, status=? where cid=?;";
-			PreparedStatement stmt = DBConnect.getConnection().prepareStatement(updateSql);
+			
+			DBConnect dbConnect = DBConnect.getInstance();
+			Connection con = dbConnect.getConnection();
+			PreparedStatement stmt = con.prepareStatement(updateSql);
 			
 			stmt.setString(1, complaint);
 			stmt.setString(2, status);
@@ -72,7 +78,10 @@ public class cServiceDemo {
 		try {
 			
 			String sql = "delete from complaintDemo where cid=?;";
-			PreparedStatement ps = DBConnect.getConnection().prepareStatement(sql);
+			
+			DBConnect dbConnect = DBConnect.getInstance();
+			Connection con = dbConnect.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setInt(1, cid);
 			int result = ps.executeUpdate(); //execute the delete query
@@ -103,7 +112,10 @@ public class cServiceDemo {
 		try {
 			//query to execute
 			String sql = "select * from student where sid=?;";
-			PreparedStatement ps = DBConnect.getConnection().prepareStatement(sql);
+			
+			DBConnect dbConnect = DBConnect.getInstance();
+			Connection con = dbConnect.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setInt(1, sid);
 			ResultSet rs = ps.executeQuery();
@@ -137,7 +149,11 @@ public class cServiceDemo {
 		
 		try {
 			String sql = "select * from complaintDemo where sid=?;";
-			PreparedStatement ps  = DBConnect.getConnection().prepareStatement(sql);
+			
+			DBConnect dbConnect = DBConnect.getInstance();
+			Connection con = dbConnect.getConnection();
+			PreparedStatement ps  = con.prepareStatement(sql);
+			
 			ps.setInt(1, sid);
 			
 			ResultSet rs = ps.executeQuery();
