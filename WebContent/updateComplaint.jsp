@@ -10,7 +10,6 @@ int pcid = Integer.parseInt(cid);
 String complaintText = "";
 
 try{
-	DBConnect dbc = new DBConnect();
 	
 	String sqlQuery = "select * from complaintDemo where cid=?;";
 	PreparedStatement ps = DBConnect.getConnection().prepareStatement(sqlQuery);

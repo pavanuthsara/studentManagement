@@ -3,6 +3,7 @@ package Servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +30,10 @@ public class ReadComplaints extends HttpServlet {
 		ArrayList<ComplaintDemo> cd = new ArrayList<>();
 		cd = csd.readComplaints(sid);
 		
+		request.setAttribute("cdetails", cd);
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("readComplaint-demo.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

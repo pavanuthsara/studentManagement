@@ -2,23 +2,11 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@page import="java.sql.*"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Model.ComplaintDemo" %>
 <%
-	String driverName = "com.mysql.jdbc.Driver";
-	String connectionUrl = "jdbc:mysql://localhost:3306/";
-	String dbName = "mydb9";
-	String userId = "root";
-	String password = "uthsara29";
+	ArrayList<ComplaintDemo> cd =(ArrayList<ComplaintDemo>) request.getAttribute("cdetails");
 	
-	try {
-	Class.forName(driverName);
-	} catch (ClassNotFoundException e) {
-	e.printStackTrace();
-	}
-	
-	Connection connection = null;
-	PreparedStatement stmt = null;
-	ResultSet resultSet = null;
-	    
 %>
 <!DOCTYPE html>
 <html>
@@ -46,37 +34,20 @@
 </tr>
 </thead>
 <%
-try{ 
-	connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
-	String sql ="SELECT * FROM complaintDemo where sid=?";
-	
-	stmt = connection.prepareStatement(sql);
-	
-	int psid =(Integer) session.getAttribute("sid");
-	stmt.setInt(1, psid);
-	
-	System.out.println(psid);
-	System.out.println(stmt);
-	
-	resultSet = stmt.executeQuery();
-	
-	while(resultSet.next()){
+for(ComplaintDemo c : cd){
 %>
 <tr>
 
-<td class="text-center"><%=resultSet.getInt("cid") %></td>
-<td class="text-center"><%=resultSet.getString("complaint") %></td>
-<td class="text-center"><%=resultSet.getString("status") %></td>
-<td class="text-center"><a href="updateComplaint.jsp?cid=<%= resultSet.getInt("cid")%>" class="btn btn-warning btn-sm">Update</a></td>
-<td class="text-center"><a href="deleteComplaint?cid=<%= resultSet.getInt("cid")%>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this complaint?');">Delete</a></td>
+<td class="text-center"><%= c.getCid() %></td>
+<td class="text-center"><%= c.getComplain() %></td>
+<td class="text-center"><%= c.getStatus() %></td>
+<td class="text-center"><a href="updateComplaint.jsp?cid=<%= c.getCid() %>" class="btn btn-warning btn-sm">Update</a></td>
+<td class="text-center"><a href="deleteComplaint?cid=<%= c.getCid()%>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this complaint?');">Delete</a></td>
 
 
 </tr>
 <%
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+}
 %>
 </table>
 </div>
