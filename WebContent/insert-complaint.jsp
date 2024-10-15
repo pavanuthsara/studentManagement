@@ -22,6 +22,30 @@
             }
             return true; // Allow form submission
         }
+        
+        document.getElementById("complaintForm").addEventListener("submit", function(event) {
+        	  // Get the input values
+        	  const complaint = document.getElementById("username").value;
+
+        	  
+        	  // Get the error message element
+        	  const errorMessage = document.getElementById("error-message");
+
+        	  // Clear any previous error message
+        	  errorMessage.classList.add("d-none");
+        	  errorMessage.textContent = "";
+
+        	  // Check if inputs are empty
+        	  if (complaint === "") {
+        	    // Prevent form submission
+        	    event.preventDefault();
+
+        	    // Show error message with Bootstrap class
+        	    errorMessage.classList.remove("d-none");
+        	    errorMessage.textContent = "Please fill in all the required fields.";
+        	  }
+        	});
+
     </script>
 </head>
 <body class="bg-light">
@@ -31,16 +55,19 @@
 	<div class="col-6">
 	<h3 class="mb-3">Add complaint here</h3>
 	
-        <form action="ComplaintServlet" method="post" id="complaintForm" onsubmit="return validateForm();" >
+        <form action="ComplaintServlet" method="post" id="complaintForm" >
             <div class="form-group mb-4">
 	            <label class="mb-2">Complaint </label>
 	            <textarea id="large-text" name="complaint" rows="10" cols="30" class="form-control" placeholder="Enter your complaint"></textarea><br>
             </div>
             <input type="hidden" name="status" value="pending">
-
-
+	
+			<div id="error-message" class="alert alert-danger d-none" role="alert"></div>
             <input type="submit" name="submit" value="Submit Complaint" class="btn btn-primary">
+            
+            
         </form>
+        
     
     </div>
 	
