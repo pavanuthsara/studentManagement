@@ -3,12 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<	meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1">
 	<title>studentLogin.jsp</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     	
 	<style>
     	<jsp:include page="footerCss.jsp" />
+    	
+    	body {
+		    background-image: url('img/schoolbg2.webp');
+		    background-size: cover;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		}
    	</style>
 </head>
 
@@ -17,7 +24,7 @@
 		
 		
 		<div class="container min-vh-80 d-flex justify-content-center align-items-center ">
-			<div class="col-6">
+			<div class="col-6 bg-light rounded-3 p-3">
 				<h3 class="mb-3">Student Login</h3>
 				<form action="stdLoginServlet" method="post" class="border p-4 rounded">
 				<div class="form-group mb-4">
