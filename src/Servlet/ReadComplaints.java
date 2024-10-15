@@ -37,15 +37,10 @@ public class ReadComplaints extends HttpServlet {
 			System.out.println("");
 		}
 		
-		
 		request.setAttribute("cdetails", cd);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("readCompaint-demo.jsp");
 		dispatcher.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 	}
 
 }

@@ -28,15 +28,19 @@ public class stdLoginServlet extends HttpServlet {
 		cServiceDemo csd = new cServiceDemo();
 		
 		StudentDemo sd = null;
-		sd = csd.checkLogIn(sid, password);
+		sd = csd.checkLogIn(sid, password); //validate login details using service class
 		
 		if(sd.getSid()>0) {
+			//creating session for student login 
 			HttpSession session = request.getSession();
 			session.setAttribute("sid", sid);
 			session.setAttribute("name", sd.getName());
-			response.sendRedirect("dashboard.jsp");
+			
+			response.sendRedirect("dashboard.jsp"); //after login redirect to student dashboard
 		}else {
 			System.out.println("Error with setting session!");
+			String errMsg = "Incorrect student ID or password";
+			response.sendRedirect("studentLogin.jsp?message=" + errMsg);
 		}
 		
 		

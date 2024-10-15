@@ -121,18 +121,21 @@ public class cServiceDemo {
 		return msg;
 	}
 	
+	
 	//Student log in check function
 	public StudentDemo checkLogIn(int sid, String password) {
 		StudentDemo sd = null;
+		
 		try {
 			//query to execute
-			String sql = "select * from student where sid=?;";
+			String sql = "select * from student where sid=? and password=?;";
 			
 			DBConnect dbConnect = DBConnect.getInstance();
 			Connection con = dbConnect.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setInt(1, sid);
+			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			
 			if(rs.next()) {
@@ -143,13 +146,12 @@ public class cServiceDemo {
 				String bdate = rs.getString(5);
 				
 				sd = new StudentDemo(psid, name, pass, email, bdate);
-				
-				if(pass.equals(password)) {
-					System.out.println("Log in success! for SID : " + sid );
-					System.out.println("Student name : " + name);
-				} else {
-					System.out.println("error with login!, Invalid sid or password!");
-				}
+
+				System.out.println("Log in success! for SID : " + sid );
+				System.out.println("Student name : " + name);
+			}else {
+				sd = new StudentDemo();
+				System.out.println("error with login!, Invalid sid or password!");
 			}
 		}catch (SQLException e) {
 	        e.printStackTrace(); // Catches database-related exceptions

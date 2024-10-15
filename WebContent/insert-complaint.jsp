@@ -17,7 +17,7 @@
             var complaint = document.getElementById("large-text").value.trim();
             
             if (complaint === "") {
-                alert("Please fill out the complaint field.");
+                alert("Please enter your complaint!");
                 return false; // Prevent form submission
             }
             return true; // Allow form submission

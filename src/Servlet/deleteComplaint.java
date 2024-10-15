@@ -20,15 +20,17 @@ public class deleteComplaint extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	int cid = Integer.parseInt(request.getParameter("cid"));
+    	
     	cServiceDemo csd = new cServiceDemo();
-		String resultMsg = csd.deleteData(cid);
+		String resultMsg = csd.deleteData(cid); //calling service class complaint delete method 
+		
 		System.out.println(resultMsg);
 		
 		HttpSession session = request.getSession();
-		int x =(Integer) session.getAttribute("sid");
+		int x =(Integer) session.getAttribute("sid"); 
 		System.out.println("x value = " + x);
 		
-		response.sendRedirect("ReadComplaints?sid=" + x);
+		response.sendRedirect("ReadComplaints?sid=" + x); 
     }
 
 }
