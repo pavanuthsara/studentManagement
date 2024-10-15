@@ -50,10 +50,14 @@ for(ComplaintDemo c : cd){
 }
 %>
 </table>
+
 </div>
 
-<!-- Include the footer -->
+		<!-- Include the footer -->
         <jsp:include page="footer.jsp" />
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ZVzw7OoIetZTAoWcBNURpupfAOt6ZXE7V6FxPHXRx6FhFmbSeLlTzZBY51RzFWjS" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+

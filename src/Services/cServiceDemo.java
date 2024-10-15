@@ -11,6 +11,7 @@ public class cServiceDemo {
 		
 	}
 	
+	//insert data function as service
 	public void insertData(ComplaintDemo cdemo) {
 		try {
 			String complaint = cdemo.getComplain();
@@ -37,11 +38,16 @@ public class cServiceDemo {
 			}
 			
 			stmt.close();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		}catch (SQLException e) {
+	        e.printStackTrace(); // Catches database-related exceptions
+	    } catch (NullPointerException e) {
+	        System.out.println("Null value encountered: " + e.getMessage()); // Catches null pointer exceptions
+	    } catch (ClassNotFoundException e) {
+	        System.out.println("Database driver not found: " + e.getMessage()); // Catches class not found exceptions
+	    }
 	}
 	
+	//update data function as service
 	public void updateData(ComplaintDemo cdemo) {
 		try {
 			int cid = cdemo.getCid();
@@ -67,9 +73,13 @@ public class cServiceDemo {
 			}
 			
 			stmt.close();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		}catch (SQLException e) {
+	        e.printStackTrace(); // Catches database-related exceptions
+	    } catch (NullPointerException e) {
+	        System.out.println("Null value encountered: " + e.getMessage()); // Catches null pointer exceptions
+	    } catch (ClassNotFoundException e) {
+	        System.out.println("Database driver not found: " + e.getMessage()); // Catches class not found exceptions
+	    }
 	}
 	
 	//Delete complaint from db - service method
@@ -100,9 +110,14 @@ public class cServiceDemo {
 			}
 			
 			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		}catch (SQLException e) {
+	        e.printStackTrace(); // Catches database-related exceptions
+	    } catch (NullPointerException e) {
+	        System.out.println("Null value encountered: " + e.getMessage()); // Catches null pointer exceptions
+	    } catch (ClassNotFoundException e) {
+	        System.out.println("Database driver not found: " + e.getMessage()); // Catches class not found exceptions
+	    }
+		
 		return msg;
 	}
 	
@@ -136,15 +151,21 @@ public class cServiceDemo {
 					System.out.println("error with login!, Invalid sid or password!");
 				}
 			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		}catch (SQLException e) {
+	        e.printStackTrace(); // Catches database-related exceptions
+	    } catch (NullPointerException e) {
+	        System.out.println("Null value encountered: " + e.getMessage()); // Catches null pointer exceptions
+	    } catch (ClassNotFoundException e) {
+	        System.out.println("Database driver not found: " + e.getMessage()); // Catches class not found exceptions
+	    }
+		
 		return sd;
 	}
 	
 	//read complaint data from db
 	public ArrayList<ComplaintDemo> readComplaints(int sid) {
 		
+		//arrayList to store data of complaints
 		ArrayList<ComplaintDemo> cdArr = new ArrayList<>();
 		
 		try {
@@ -152,6 +173,7 @@ public class cServiceDemo {
 			
 			DBConnect dbConnect = DBConnect.getInstance();
 			Connection con = dbConnect.getConnection();
+			
 			PreparedStatement ps  = con.prepareStatement(sql);
 			
 			ps.setInt(1, sid);
@@ -167,9 +189,13 @@ public class cServiceDemo {
 				cdArr.add(cd);
 			}
 			
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
+		} catch (SQLException e) {
+	        e.printStackTrace(); // Catches database-related exceptions
+	    } catch (NullPointerException e) {
+	        System.out.println("Null value encountered: " + e.getMessage()); // Catches null pointer exceptions
+	    } catch (ClassNotFoundException e) {
+	        System.out.println("Database driver not found: " + e.getMessage()); // Catches class not found exceptions
+	    }
 		
 		return cdArr;
 		
