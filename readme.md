@@ -1,3 +1,14 @@
+## Web App - School Information Management System
+Year 2 Semester 1 - OOP module project
+
+#### Home page
+![Home Page](./WebContent/readme/home.webp)
+
+#### Student Login page
+![test](./WebContent/readme/stdlogin.webp)
+
+
+
 ### Database query
 
 ```create database mydb9;```
