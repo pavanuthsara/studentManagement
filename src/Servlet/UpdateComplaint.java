@@ -29,6 +29,7 @@ public class UpdateComplaint extends HttpServlet {
 		cServiceDemo csd = new cServiceDemo();
 		csd.updateData(cmp);
 		
+		//get the session from sid
 		HttpSession session = request.getSession();
 		int x =(Integer) session.getAttribute("sid");
 		System.out.println("x value for update complaint = " + x);

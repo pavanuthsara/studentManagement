@@ -4,57 +4,71 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	<title>studentLogin.jsp</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    	
-	<style>
-    	<jsp:include page="footerCss.jsp" />
-    	
-    	body {
-		    background-image: url('img/schoolbg2.webp');
-		    background-size: cover;
-		    background-position: center;
-		    background-repeat: no-repeat;
-		}
-   	</style>
+    <title>studentLogin.jsp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        
+    <style>
+        <jsp:include page="footerCss.jsp" />
+        
+        body {
+            background-image: url('img/schoolbg2.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
 <body bg-light>
-		<jsp:include page="header.jsp" />
-		
-		
-		<div class="container min-vh-80 d-flex justify-content-center align-items-center ">
-			<div class="col-6 bg-light rounded-3 p-3">
-				<h3 class="mb-3">Student Login</h3>
-				<form action="stdLoginServlet" method="post" class="border p-4 rounded">
-				<div class="form-group mb-4">
-					<label class="mb-2">Student ID</label>
-					<input type="text" name="sid" class="form-control" placeholder="Enter Student Id">
-				</div>
-					
-				<div class="form-group mb-4">	
-					<label class="mb-2">Password</label>
-					<input type="password" name="password" class="form-control" placeholder="Enter password">
-				</div>
-			
-				<input type="submit" value="Log In" class="btn btn-primary">
-			
-				</form>
-			</div>
-		</div>
+        <jsp:include page="header.jsp" />
+        
+        
+        <div class="container min-vh-80 d-flex justify-content-center align-items-center ">
+            <div class="col-6 bg-light rounded-3 p-3">
+                <h3 class="mb-3">Student Login</h3>
+                <form action="stdLoginServlet" method="post" class="border p-4 rounded" onsubmit="return validateForm()">
+                <div class="form-group mb-4">
+                    <label class="mb-2">Student ID</label>
+                    <input type="text" name="sid" id="sid" class="form-control" placeholder="Enter Student Id">
+                </div>
+                    
+                <div class="form-group mb-4">    
+                    <label class="mb-2">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter password">
+                </div>
+            
+                <input type="submit" value="Log In" class="btn btn-primary">
+            
+                </form>
+            </div>
+        </div>
 
-	 	<script>
-	        // Get the URL parameters
-	        const urlParams = new URLSearchParams(window.location.search);
-	        const message = urlParams.get('message');
-	        
-	        // If there is a message, display it in an alert box
-	        if (message) {
-	            alert(decodeURIComponent(message));
-	        }
-	    </script>
+        <script>
+            // Form validation function
+            function validateForm() {
+                // Get form fields
+                var studentId = document.getElementById("sid").value;
+                var password = document.getElementById("password").value;
 
-		<!-- Include the footer -->
+                // Check if Student ID and Password are empty
+                if (studentId === "" || password === "") {
+                    alert("Please fill out both Student ID and Password.");
+                    return false;  // Prevent form submission
+                }
+                return true;  // Allow form submission
+            }
+
+            // Get the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const message = urlParams.get('message');
+            
+            // If there is a message, display it in an alert box
+            if (message) {
+                alert(decodeURIComponent(message));
+            }
+        </script>
+
+        <!-- Include the footer -->
         <jsp:include page="footer.jsp" />
 </body>
 </html>
